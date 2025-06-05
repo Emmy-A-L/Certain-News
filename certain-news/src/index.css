@@ -1,0 +1,32 @@
+@import 'tailwindcss';
+
+
+:root {
+  --primary: #6a0dad;
+  --primary-light: #9b4de0;
+  --primary-dark: #4a0072;
+  --secondary: #d8bfd8;
+  --light: #f5f5f5;
+  --dark: #333333;
+  --gray: #777777;
+}
+
+body {
+  font-family: 'Roboto', 'Open Sans', sans-serif;
+  background-color: var(--light);
+  color: var(--dark);
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-purple-700 hover:bg-purple-800 text-white font-medium py-2 px-4 rounded-lg transition duration-200;
+  }
+  
+  .card {
+    @apply bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+  }
+  
+  .chip {
+    @apply bg-purple-200 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded-full;
+  }
+}
