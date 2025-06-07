@@ -10,7 +10,7 @@ const sources = [
   { id: 'vanguard', name: 'Vanguard' },
 ];
 
-const SourceFilter = (mobile: string) => {
+const SourceFilter = (mobile: object) => {
   const [selectedSource, setSelectedSource] = useState('all');
   const [isOpen, setIsOpen] = useState(false);
   

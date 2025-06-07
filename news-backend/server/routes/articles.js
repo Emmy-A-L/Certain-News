@@ -30,17 +30,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Get article by ID
-router.get('/:id', async (req, res) => {
-  try {
-    const article = await Article.findById(req.params.id);
-    if (!article) return res.status(404).json({ message: 'Article not found' });
-    res.json(article);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
-});
-
 // Get latest updates (last 1 hour)
 router.get('/latest', async (req, res) => {
   try {
@@ -54,5 +43,17 @@ router.get('/latest', async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 });
+
+// Get article by ID
+router.get('/:id', async (req, res) => {
+  try {
+    const article = await Article.findById(req.params.id);
+    if (!article) return res.status(404).json({ message: 'Article not found' });
+    res.json(article);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
 
 module.exports = router;

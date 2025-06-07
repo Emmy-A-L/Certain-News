@@ -19,4 +19,5 @@ app.listen(PORT, () => {
 
 app.get('/', (req, res) => {
     res.send('Connected to MongoDB!');
+    console.log("Mongo DB connected!");
 });

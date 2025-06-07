@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import ArticleCard from '../components/ArticleCard';
 import api from '../services/api';
 
@@ -6,14 +6,14 @@ function HomePage() {
   const [articles, setArticles] = useState([]);
   const [latestUpdates, setLatestUpdates] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string|null>(null);
   
   useEffect(() => {
     const fetchArticles = async () => {
       try {
         setLoading(true);
         const [mainArticles, latest] = await Promise.all([
-          api.get('/articles?limit=12'),
+          api.get('/articles'),
           api.get('/articles/latest')
         ]);
         setArticles(mainArticles.data);
