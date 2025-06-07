@@ -186,6 +186,7 @@ const connectDB = require('./server/config/db')
 require("dotenv").config();
 
 const app = express();
+const PORT = process.env.PORT
 
 // Middleware
 app.use(cors());
@@ -205,5 +206,9 @@ cron.schedule('*/30 * * * *', () => {
 
 // Initial fetch on startup
 fetchNews();
+
+app.listen(PORT, () => {
+  console.log(`App is running on http://localhost:${PORT}`);
+});
 
 module.exports = app;
